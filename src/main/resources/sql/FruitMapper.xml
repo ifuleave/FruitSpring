@@ -26,4 +26,20 @@
 	select * from fruit where name = #{name}
   </select>
   
+  <select id="fruitCount">
+   	select count(name) from fruit where name = #{name}
+  </select>  
+  
+   <select id="fruitOptionList">
+   	SELECT * FROM FRUIT
+	WHERE SOLD_YN= FALSE
+	<if test='option == "GTE"'>
+	     AND PRICE <![CDATA[>=]]>#{price}
+	  </if> 
+	<if test='option == "LTE"'>
+	     AND PRICE <![CDATA[<=]]>#{price} 
+	 </if> 
+  </select> 
+  
 </mapper>
+
